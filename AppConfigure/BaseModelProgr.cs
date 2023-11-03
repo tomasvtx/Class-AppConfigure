@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,20 @@ namespace AppConfigure
 {
     public class BaseModelProgr
     {
+        /// <summary>
+        /// Třída reprezentující konfiguraci databáze pro programování.
+        /// Rozšiřuje základní konfiguraci databáze.
+        /// </summary>
+        public class DatabaseConfProg
+        {
+            /// <summary>
+            /// Získá nebo nastaví objekt sériového portu pro programování.
+            /// </summary>
+            public IDbConnection DbConnection { get; set; }
+
+            public DatabaseConfOracle DatabaseConf { get; set; }
+        }
+
         /// <summary>
         /// Třída reprezentující konfiguraci sériového portu pro programování.
         /// Rozšiřuje základní konfiguraci sériového portu.

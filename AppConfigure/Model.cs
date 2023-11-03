@@ -17,7 +17,7 @@ namespace AppConfigure
             /// <summary>
             /// Konfigurace hlavní aplikace.
             /// </summary>
-            public DaikinAppConfigure KonfiguraceAplikace { get; set; }
+            public AppConfiguration KonfiguraceAplikace { get; set; }
         }
 
         /// <summary>

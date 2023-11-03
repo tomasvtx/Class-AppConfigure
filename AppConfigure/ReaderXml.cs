@@ -8,7 +8,7 @@
         /// <summary>
         /// Načtená konfigurace DAIKIN_AppConfigure.
         /// </summary>
-        public DaikinAppConfigure DaikinAppConfigure { get; set; }
+        public AppConfiguration DaikinAppConfigure { get; set; }
 
         /// <summary>
         /// Chybová zpráva v případě, že došlo k výjimce při čtení XML.

@@ -36,47 +36,11 @@ namespace AppConfigure
         /// Logger aplikace.
         /// </summary>
         public LoggerConfig Logger { get; set; } = new LoggerConfig();
-    }
 
-
-    /// <summary>
-    /// Konfigurace aplikace Daikin.
-    /// Rozšiřuje základní konfiguraci <see cref="AppConfigure"/>.
-    /// </summary>
-    public class DaikinAppConfigure : AppConfiguration
-    {
-
-        /// <summary>
-        /// Linka výroby.
-        /// </summary>
-        public string Line { get; set; } = "Line";
-
-        /// <summary>
-        /// Sline.
-        /// </summary>
-        public string SLine { get; set; } = "Sline";
-
-        /// <summary>
-        /// Pozice ve výrobě.
-        /// Výchozí hodnota je 0.
-        /// </summary>
-        public UInt16? Position { get; set; } = UInt16.MaxValue;
-
-        /// <summary>
-        /// Kolekce aktivních desek.
-        /// </summary>
-        public ObservableCollection<ActiveBoard> ActiveBoardReg { get; set; } = new ObservableCollection<ActiveBoard>();
-
-
-        /// <summary>
-        /// Tabulky používané v aplikaci Daikin.
-        /// </summary>
-        public DaikinTables Tables { get; set; } = new DaikinTables();
 
         /// <summary>
         /// Složka obrázků.
         /// </summary>
         public ImgFolder ImgFolder { get; set; } = new ImgFolder();
-
     }
 }

@@ -21,9 +21,9 @@ namespace AppConfigure
         /// True, pokud operace proběhla úspěšně, a konfigurace byla načtena do 'daikinAppConfigure'.
         /// False, pokud operace selhala a v 'error' je uložen popis chyby.
         /// </returns>
-        public static bool TryReadXML(out DaikinAppConfigure daikinAppConfigure, out string error, string filePath = "CONFIG\\CONFIG.xml")
+        public static bool TryReadXML(out AppConfiguration appConfiguration, out string error, string filePath = "CONFIG\\CONFIG.xml")
         {
-            daikinAppConfigure = null;
+            appConfiguration = null;
             error = string.Empty;
 
             try
@@ -31,13 +31,13 @@ namespace AppConfigure
                 if (File.Exists(filePath))
                 {
                     // Inicializace XML serializeru pro třídu 'DaikinAppConfigure'.
-                    var serializer = new XmlSerializer(typeof(DaikinAppConfigure));
+                    var serializer = new XmlSerializer(typeof(AppConfiguration));
 
                     // Otevření a čtení XML souboru.
                     using (var sr = new StreamReader(filePath))
                     {
                         // Deserializace XML souboru na instanci 'DaikinAppConfigure'.
-                        daikinAppConfigure = (DaikinAppConfigure)serializer.Deserialize(sr);
+                        appConfiguration = (AppConfiguration)serializer.Deserialize(sr);
                     }
                 }
                 else
@@ -63,23 +63,12 @@ namespace AppConfigure
         /// <param name="konfiguraceAplikace">Instance 'DaikinAppConfigure', která má být konfigurována na základě zpracovaných argumentů.</param>
         /// <param name="argumentyPole">Pole řetězců obsahující argumenty, které budou zpracovány.</param>
         /// <returns>Instance 'ArgsCooperationModel', která obsahuje konfigurovanou instanci 'DaikinAppConfigure' a objekt 'Argumenty' s extrahovanými hodnotami argumentů.</returns>
-        public static ArgsCooperationModel GetCooperationArguments(this DaikinAppConfigure konfiguraceAplikace, string[] argumentyPole)
+        public static ArgsCooperationModel GetCooperationArguments(this AppConfiguration konfiguraceAplikace, string[] argumentyPole)
         {
             var argumenty = new Argumenty();
 
             // Zpracování argumentů s využitím metody ParseArguments definované v ArgumentyPole (necháme ji na uživateli ji definovat).
             argumentyPole.ParseArguments(ref argumenty);
-
-            if (argumenty.VýrobníLinka.Length > 0)
-            {
-                konfiguraceAplikace.Line = argumenty.VýrobníLinka;
-                konfiguraceAplikace.SLine = konfiguraceAplikace.Line == "F7" ? "121700" : "NO";
-            }
-
-            if (argumenty.PoziceVeVýrobě != null)
-            {
-                konfiguraceAplikace.Position = argumenty.PoziceVeVýrobě ?? 2;
-            }
 
             if (argumenty.ZobrazitNaCelouObrazovku)
             {
@@ -183,21 +172,6 @@ namespace AppConfigure
                 konfiguraceAplikace.WindowConf.WidescreenAlways = false;
             }
 
-            if (argumenty.ČísloZáznamuDashboardu.Length > 0 && ushort.TryParse(argumenty.ČísloZáznamuDashboardu, out ushort recNo))
-            {
-                if (konfiguraceAplikace.ActiveBoardReg == null)
-                {
-                    konfiguraceAplikace.ActiveBoardReg = new ObservableCollection<DaikinModel.ActiveBoard>();
-                }
-                if (konfiguraceAplikace.ActiveBoardReg.FirstOrDefault(ee => ee.Description == "MAIN") == null)
-                {
-                    konfiguraceAplikace.ActiveBoardReg.Add(new DaikinModel.ActiveBoard { Description = "MAIN", RecNo = recNo });
-                }
-                else
-                {
-                    konfiguraceAplikace.ActiveBoardReg.FirstOrDefault(ee => ee.Description == "MAIN").RecNo = recNo;
-                }
-            }
 
             // Vrací objekt 'ArgsCooperationModel' s konfigurací aplikace a objektem argumentů.
             return new ArgsCooperationModel { KonfiguraceAplikace = konfiguraceAplikace, Argumenty = argumenty };

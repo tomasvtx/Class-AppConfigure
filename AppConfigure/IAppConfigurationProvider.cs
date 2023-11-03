@@ -9,9 +9,9 @@ namespace AppConfigure
 {
     internal interface IAppConfigurationProvider
     {
-        bool TryReadXML(out DaikinAppConfigure daikinAppConfigure, out string error, string filePath = "CONFIG\\CONFIG.xml");
+        bool TryReadXML(out AppConfiguration appConfiguration, out string error, string filePath = "CONFIG\\CONFIG.xml");
         void Save(AppConfiguration configuration, string filePath = "CONFIG\\CONFIG.xml");
-        ArgsCooperationModel GetCooperationArguments(DaikinAppConfigure konfiguraceAplikace, string[] argumentyPole);
+        ArgsCooperationModel GetCooperationArguments(AppConfiguration appConfiguration, string[] argumentyPole);
         void ParseArguments(string[] argumentyPole, ref Argumenty argumenty);
     }
 }
