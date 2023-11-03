@@ -1,4 +1,4 @@
-﻿namespace AppConfigure
+﻿namespace AppConfigure.Model.Xml
 {
     /// <summary>
     /// Třída pro čtení konfigurace z XML souboru.

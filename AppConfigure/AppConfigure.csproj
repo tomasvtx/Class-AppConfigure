@@ -41,15 +41,20 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppConfigure.cs" />
-    <Compile Include="BaseModelProgr.cs" />
-    <Compile Include="DaikinModel.cs" />
-    <Compile Include="BaseModel.cs" />
-    <Compile Include="IAppConfigurationProvider.cs" />
-    <Compile Include="Model.cs" />
-    <Compile Include="ReaderXml.cs" />
-    <Compile Include="SystemInfoUtility.cs" />
-    <Compile Include="ArgsCooperation.cs" />
+    <Compile Include="Model\BaseModelProgr\DatabaseConfProg.cs" />
+    <Compile Include="Enums\AppRunning.cs" />
+    <Compile Include="Model\Xml\BaseModel\ImgFolder.cs" />
+    <Compile Include="Model\Args\ArgsCooperationModel.cs" />
+    <Compile Include="Model\Args\Argumenty.cs" />
+    <Compile Include="Model\Xml\AppConfigure.cs" />
+    <Compile Include="Model\Xml\BaseModel\DatabaseConfOracle.cs" />
+    <Compile Include="Model\Xml\BaseModel\LoggerConfig.cs" />
+    <Compile Include="Model\Xml\ReaderXml.cs" />
+    <Compile Include="Model\Xml\BaseModel\SerialPortConf.cs" />
+    <Compile Include="Model\Xml\BaseModel\WindowConf.cs" />
+    <Compile Include="Model\BaseModelProgr\SerialPortConfProg.cs" />
+    <Compile Include="Utils\SystemInfoUtility.cs" />
+    <Compile Include="Utils\ArgsCooperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

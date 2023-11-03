@@ -1,25 +1,5 @@
-﻿using System;
-
-namespace AppConfigure
+﻿namespace AppConfigure.Model.Args
 {
-    public struct Model
-    {
-        /// <summary>
-        /// Model pro argumenty a nastavení aplikace.
-        /// </summary>
-        public struct ArgsCooperationModel
-        {
-            /// <summary>
-            /// Seznam argumentů předaných aplikaci.
-            /// </summary>
-            public Argumenty Argumenty { get; set; }
-
-            /// <summary>
-            /// Konfigurace hlavní aplikace.
-            /// </summary>
-            public AppConfiguration KonfiguraceAplikace { get; set; }
-        }
-
         /// <summary>
         /// Model pro argumenty aplikace.
         /// </summary>
@@ -105,5 +85,4 @@ namespace AppConfigure
             /// </summary>
             public bool ZakázatŠirokoúhlýDisplej { get; set; }
         }
-    }
 }

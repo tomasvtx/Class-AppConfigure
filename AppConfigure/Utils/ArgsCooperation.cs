@@ -1,13 +1,14 @@
-﻿using System;
+﻿using AppConfigure.Model.Args;
+using AppConfigure.Model.Xml;
+using AppConfigure.Model.Xml.BaseModel;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Xml.Serialization;
-using static AppConfigure.BaseModel;
-using static AppConfigure.Model;
 
-namespace AppConfigure
+namespace AppConfigure.Utils
 {
     public static class ArgsCooperation
     {

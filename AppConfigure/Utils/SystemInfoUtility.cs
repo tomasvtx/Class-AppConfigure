@@ -1,8 +1,9 @@
-﻿using System;
+﻿using AppConfigure.Enums;
+using System;
 using System.Diagnostics;
 using System.Linq;
 
-namespace AppConfigure
+namespace AppConfigure.Utils
 {
     /// <summary>
     /// Utility pro získávání systémových informací a řízení procesů.
@@ -102,21 +103,5 @@ namespace AppConfigure
                 proces.Kill();
             }
         }
-    }
-
-    /// <summary>
-    /// Výčet stavů provozu aplikace.
-    /// </summary>
-    public enum AppRunning
-    {
-        /// <summary>
-        /// Aplikace je ve výpisu spuštěných procesů.
-        /// </summary>
-        Běžící,
-
-        /// <summary>
-        /// Aplikace není ve výpisu spuštěných procesů.
-        /// </summary>
-        NeBěžící
     }
 }

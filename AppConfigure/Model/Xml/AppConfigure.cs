@@ -1,9 +1,7 @@
-﻿using System;
+﻿using AppConfigure.Model.Xml.BaseModel;
 using System.Collections.ObjectModel;
-using static AppConfigure.DaikinModel;
-using static AppConfigure.BaseModel;
 
-namespace AppConfigure
+namespace AppConfigure.Model.Xml
 {
     /// <summary>
     /// Třída pro konfiguraci aplikace.
